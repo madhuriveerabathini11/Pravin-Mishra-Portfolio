@@ -40,3 +40,35 @@ Add this line (example):
 ```
 
 ✅ This proof must be visible in your browser screenshot submission.
+
+## Dynamic Deployment Date in Footer
+
+### Requirement
+The website footer displays the date in `DD Mon YYYY` format, along with the group and week information.
+
+### Implementation
+Option A — JavaScript is used to generate the date dynamically. The HTML contains a `<span>` element with the ID `deployDate`, and JavaScript inserts the formatted date into that element.
+
+### Code Snippet
+
+```html
+Date: <span id="deployDate"></span>
+
+<script>
+  const today = new Date();
+
+  const options = {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  };
+
+  document.getElementById("deployDate").textContent =
+    today.toLocaleDateString("en-GB", options);
+</script>
+```
+
+### Expected Output
+`Date: 24 Oct 2026`
+
+The date updates automatically based on the visitor's browser date whenever the page loads. This implementation does not record the actual deployment timestamp.
